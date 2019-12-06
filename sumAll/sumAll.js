@@ -1,5 +1,32 @@
-const sumAll = function() {
+const sumAll = function(first, last) {
+    let sum = 0;
+    let high = 0;
+    let low = 0;
 
+    if (last > first){
+        high = last;
+        low = first;
+    } else {
+        low = last;
+        high = first;
+    }
+
+    for (i = low; i < high+1; i++){
+        sum += i;
+    }
+    // numbers.forEach(function(element){
+    //     sum += element;
+    // }
+    // );
+
+    if( sum < 0 || 
+        isNaN(first) || 
+        isNaN(last) || 
+        typeof first === 'string' ||
+        typeof last === 'string'){
+        return "ERROR";
+    }
+    return sum;
 }
 
 module.exports = sumAll
