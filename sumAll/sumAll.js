@@ -14,10 +14,6 @@ const sumAll = function(first, last) {
     for (i = low; i < high+1; i++){
         sum += i;
     }
-    // numbers.forEach(function(element){
-    //     sum += element;
-    // }
-    // );
 
     if( sum < 0 || 
         isNaN(first) || 
