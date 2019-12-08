@@ -10,7 +10,7 @@ describe('leapYears', function() {
   it('works with ridiculously futuristic non century years', function() {
     expect(leapYears(34992)).toEqual(true);
   });
-  xit('works with century years', function() {
+  it('works with century years', function() {
     expect(leapYears(1900)).toEqual(false);
   });
   it('works with century years', function() {
