@@ -1,21 +1,46 @@
-const palindromes = (string) => {
-    string = string.replace(/\s+/g, "");
-    revString = string;
-    revStringArray = revString.split(); //splits string into array of substrings
-    revStringArray.reverse();
-    revString = revStringArray.join();
+const palindromes = function (string) {
+    // console.log("Prior to mods: " + string)
 
-    string === revString ? true : false;
+    string = string.replace(/\s+/g, ""); //removes whitespace
+    // console.log("whitespace removal: " + string);
+
+    string = string.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,""); //removes punctuation
+    // console.log("punctuation removal: " + string);
+
+    string = string.toLowerCase();
+    // console.log('lowercase: ' + string)
+
+    let revString = string;
+    // console.log("Revstring: " + revString + "   String: " + string);
+
+    let buffer = revString.split(''); //splits string into array of substrings. Must specify ''
+    // console.log("Buffer: " + buffer)
+    buffer.reverse(); //reverses
+    // console.log("Buffer reversed: " + buffer)
+    // console.log(buffer[0])
+    buffer = buffer.join(''); //rejoins
+    // console.log("Buffer rejoined: " + buffer)
+    revString = buffer;
+    // console.log("Now does " + revString + " equal " + string + " after reversal?");
+    // console.log("");
+
+    // if(string === revString){
+    //     return true;
+    // }
+    //     return false;
+    return string === revString ? true : false;
 };
 
-// function removeSpace(string){
-//     string = string.trim();
-//     return string
-// }
+// palindromes('racecar')
 
-// function reverseString(){
+// palindromes('Racecar!')
 
-// }
+// palindromes('A car, a man, a maraca.')
+
+// palindromes('Animal loots foliated detail of stool lamina.')
+
+// palindromes('ZZZZ car, a man, a maraca.')
+
 
 
 
