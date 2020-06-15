@@ -1,34 +1,76 @@
 const caesar = function (string, times) {
     let alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     let beta = "abcdefghijklmnopqrstuvwxyz";
-    newString = "";
-    // let or = /[a-z]/i;
+    let regex = /\W|\s/
+    let newString = "";
+    
+    if (times > 25){
+        times++;
+        times %= 26;
+        times--;
+    }
 
+    // if (times < -25){
+    //     times--;
+    //     times %= 26;
+    //     times++;
+    // }
 
     let list = string.split('');
-    console.log(list);
-    console.log(list[0]);
+    // console.log('Array: ' + list);
+    // console.log(list[0]);
 
     // list.reduce(function(), 0);
 
     for (i = 0; i < list.length; i++) {
-        console.log('list length loop');
+        // console.log('Test: ' + list[i]);
+        // if (list[i] == (/\W|\s/g)){
+        if (regex.test(list[i])){
+            // console.log('add: ' + list[i])
+            newString += list[i];
+        }
+
         for (j = 0; j < alpha.length; j++) {
-            console.log('alpha length loop');
+            // console.log('alpha length loop');
             if (list[i] == alpha[j]) {
-                console.log('alpha and list are equal');
-                j += times;
-                console.log(alpha[j]);
-                newString += alpha[j];
+                // console.log('alpha and list are equal');
+                if (j < 22){
+                    j += times;
+                    newString += alpha[j]
+                } else {
+                    j += times;
+                    let k = j % 26;
+                    newString += alpha[k];
+                }
+                // j += times;
+                // if (j > 25){
+                //     let k = j - 26;
+                //     newString += alpha[k];
+                // }
+                // console.log("add " + alpha[j]);
+                // newString += alpha[j];
             }
 
             if (list[i] == beta[j]) {
-                console.log('beta and list are equal');
-                j += times;
-                console.log(beta[j]);
-                newString += beta[j];
+                // console.log('beta and list are equal');
+                if (j < 22){
+                    j += times;
+                    newString += beta[j]
+                } else {
+                    j += times;
+                    let k = j % 26;
+                    newString += beta[k];
+                }
+                // j += times;
+                // if (j > 25){
+                //     let k = j - 26;
+                //     newString += beta[k];
+                // }
+                // console.log("add " + beta[j]);
+                // newString += beta[j];
             }
         }
+        // console.log("");
     }
 
     return newString;
