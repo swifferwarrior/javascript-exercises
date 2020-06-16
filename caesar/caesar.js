@@ -4,10 +4,16 @@ const caesar = function (string, times) {
     let regex = /\W|\s/
     let newString = "";
     
-    if (times > 25){
+    while (times > 25){
         times++;
         times %= 26;
         times--;
+    }
+
+    while (times < -25){
+        times--;
+        times %= 26;
+        times++;
     }
 
     // if (times < -25){
@@ -34,10 +40,10 @@ const caesar = function (string, times) {
             // console.log('alpha length loop');
             if (list[i] == alpha[j]) {
                 // console.log('alpha and list are equal');
-                if (j < 22){
-                    j += times;
-                    newString += alpha[j]
-                } else {
+                // if (j < 22){
+                //     j += times;
+                //     newString += alpha[j]
+                // } else {
                     j += times;
                     let k = j % 26;
                     newString += alpha[k];
@@ -49,14 +55,14 @@ const caesar = function (string, times) {
                 // }
                 // console.log("add " + alpha[j]);
                 // newString += alpha[j];
-            }
+            // }
 
             if (list[i] == beta[j]) {
                 // console.log('beta and list are equal');
-                if (j < 22){
-                    j += times;
-                    newString += beta[j]
-                } else {
+                // if (j < 22){
+                //     j += times;
+                //     newString += beta[j]
+                // } else {
                     j += times;
                     let k = j % 26;
                     newString += beta[k];
@@ -71,7 +77,7 @@ const caesar = function (string, times) {
             }
         }
         // console.log("");
-    }
+    // }
 
     return newString;
 
@@ -103,6 +109,6 @@ const caesar = function (string, times) {
 //for every letter in teh string, run through the alpha
 //once you find the alpha index, +3 the index number
 
-caesar("hello", 1); // ifmmp
+//caesar("hello", 1); // ifmmp
 
-module.exports = caesar
+module.exports = caesar;
