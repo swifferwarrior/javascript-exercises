@@ -12,7 +12,8 @@ let findTheOldest = function(people) {
 
     }
 
-    console.table("table 1" + people.age);
+    console.table("table 1 " + people.age);
+    console.log(people.age)
 
     people.sort((a,b) => a.age > b.age ? 1 : -1);
 
