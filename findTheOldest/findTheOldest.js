@@ -2,7 +2,7 @@ let findTheOldest = function (people) {
     let now = new Date().getFullYear();
     
     console.log("")
-    
+
     for (let person of people) {
         if (person.yearOfDeath == undefined) {
             person.age = now - person.yearOfBirth; //Age if alive
@@ -16,7 +16,6 @@ let findTheOldest = function (people) {
     let ages = people.map((people) => people.age);
     
     people.sort((a, b) => a.age < b.age ? 1 : -1);
-    
     console.table(people);
     console.log(people[0].name + " is the oldest.");
     console.log("----------")
